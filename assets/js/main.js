@@ -46,6 +46,18 @@
     });
   }
 
+  /* FAQ accordion */
+  document.querySelectorAll(".accordion__trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function () {
+      const expanded = trigger.getAttribute("aria-expanded") === "true";
+      const panel = document.getElementById(trigger.getAttribute("aria-controls"));
+      trigger.setAttribute("aria-expanded", String(!expanded));
+      if (panel) {
+        panel.style.maxHeight = expanded ? null : panel.scrollHeight + "px";
+      }
+    });
+  });
+
   /* Stamp current year in footer */
   const yearEl = document.getElementById("year");
   if (yearEl) {
