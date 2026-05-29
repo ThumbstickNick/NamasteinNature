@@ -1,0 +1,11 @@
+# Namaste in Nature — robots.txt
+# NOTE: This file ships to BOTH the GitHub Pages staging URL and the live
+# domain. Crawl control for the staging subdomain is handled separately by a
+# hostname-aware <meta name="robots" content="noindex"> tag injected in
+# assets/js/main.js, so staging pages stay out of the index without blocking
+# the live site here.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://namasteinnature.com/sitemap.xml

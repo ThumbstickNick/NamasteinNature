@@ -2,6 +2,16 @@
 (function () {
   "use strict";
 
+  /* Keep the GitHub Pages staging site out of search results.
+     Only the *.github.io host gets a noindex tag; the live custom domain
+     (namasteinnature.com) is never affected, so its SEO is untouched. */
+  if (/\.github\.io$/i.test(location.hostname)) {
+    var robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.appendChild(robots);
+  }
+
   /* Mobile nav toggle */
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
