@@ -337,6 +337,135 @@ p  { color: var(--text); }
 .cta-band h2 { color: var(--color-white); }
 .cta-band .lead { color: rgba(255,255,255,0.9); }
 
+/* --- Interior page hero ---------------------------------------------- */
+.page-hero {
+  position: relative;
+  color: var(--color-white);
+  padding-block: calc(var(--space-6) + 1rem) var(--space-6);
+  text-align: center;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 90% at 80% 0%, rgba(167,191,169,0.5), transparent 55%),
+    radial-gradient(120% 90% at 0% 100%, rgba(194,120,79,0.35), transparent 55%),
+    linear-gradient(160deg, #3a5446 0%, #2f4a3c 50%, #25382d 100%);
+}
+.page-hero h1 { color: var(--color-white); margin-top: var(--space-1); }
+.page-hero .lead { color: rgba(255,255,255,0.9); margin-inline: auto; max-width: 60ch; margin-top: var(--space-3); }
+
+/* --- Breadcrumb ------------------------------------------------------- */
+.breadcrumb {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.75);
+}
+.breadcrumb a:hover { color: var(--color-white); }
+
+/* --- Split (text + media) -------------------------------------------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+.split--reverse .split__media { order: 2; }
+.split__media {
+  aspect-ratio: 5 / 4;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background:
+    radial-gradient(140% 120% at 20% 0%, rgba(167,191,169,0.6), transparent 60%),
+    linear-gradient(160deg, var(--color-moss), var(--color-forest));
+  display: grid;
+  place-items: center;
+}
+.split__media::after {
+  content: attr(data-label);
+  font-family: var(--font-head);
+  color: rgba(255,255,255,0.85);
+  font-size: var(--fs-sm);
+}
+.split__body h2 { margin-bottom: var(--space-2); }
+.split__body p + p { margin-top: var(--space-2); }
+@media (max-width: 800px) {
+  .split { grid-template-columns: 1fr; gap: var(--space-3); }
+  .split--reverse .split__media { order: 0; }
+}
+
+/* --- Features grid ---------------------------------------------------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+.feature__icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--color-sage);
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+.feature h3 { font-size: var(--fs-lg); margin-bottom: 0.4rem; }
+.feature p { color: var(--text-muted); font-size: var(--fs-sm); }
+
+/* --- Checklist -------------------------------------------------------- */
+.checklist { list-style: none; padding: 0; display: grid; gap: 0.6rem; }
+.checklist li { position: relative; padding-left: 1.8rem; }
+.checklist li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* --- Booking embed placeholder (Peek Pro goes here) ------------------ */
+.booking { background: var(--color-sand); }
+.embed-ph {
+  border: 2px dashed var(--color-moss);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.6);
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--text-muted);
+}
+.embed-ph strong { color: var(--primary); display: block; margin-bottom: 0.3rem; }
+
+/* --- Pricing options -------------------------------------------------- */
+.options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+.option {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.option--featured { border-color: var(--accent); border-width: 2px; }
+.option__price { font-family: var(--font-head); font-size: var(--fs-xl); color: var(--primary); margin: var(--space-1) 0; }
+.option__price span { font-family: var(--font-body); font-size: var(--fs-sm); color: var(--text-muted); }
+.option .btn { margin-top: var(--space-3); }
+.option ul { text-align: left; margin-top: var(--space-2); }
+
 /* --- Footer ----------------------------------------------------------- */
 .site-footer {
   background: var(--primary);
