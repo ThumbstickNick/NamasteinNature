@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — Namaste in Nature | Asheville, NC</title>
   <meta name="description" content="Stories, trail notes, and wellness tips from Namaste in Nature in Asheville, NC — yoga, forest bathing, sound healing, and mountain living." />
+  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="../index.html">Namaste <span>in</span> Nature</a>
+      <a class="brand" href="../index.html"><img class="brand__logo" src="../assets/img/logo.png" alt="" />Namaste <span>in</span> Nature</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -30,7 +31,8 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero page-hero--photo">
+        <div class="page-hero__media" aria-hidden="true"><img src="../assets/img/hero-2.jpg" alt="" /></div>
       <div class="container">
         <p class="breadcrumb"><a href="../index.html">Home</a> &nbsp;/&nbsp; Blog</p>
         <p class="eyebrow">Field notes</p>
@@ -44,7 +46,7 @@
         <div class="post-grid reveal">
 
           <article class="post-card">
-            <a href="sample-post.html" class="post-card__media" aria-label="Read: 5 Forest Bathing Techniques"></a>
+            <a href="sample-post.html" class="post-card__media" aria-label="Read: 5 Forest Bathing Techniques"><img src="../assets/img/retreat-waterfall.jpg" alt="" loading="lazy" /></a>
             <div class="post-card__body">
               <p class="post-card__date">May 2026</p>
               <h3>5 Forest Bathing Techniques to Try on Your Next Hike</h3>
@@ -54,7 +56,7 @@
           </article>
 
           <article class="post-card">
-            <a href="sample-post.html" class="post-card__media" aria-label="Read post"></a>
+            <a href="sample-post.html" class="post-card__media" aria-label="Read post"><img src="../assets/img/yoga-2.jpg" alt="" loading="lazy" /></a>
             <div class="post-card__body">
               <p class="post-card__date">Coming soon</p>
               <h3>Why Outdoor Yoga Hits Different</h3>
@@ -64,7 +66,7 @@
           </article>
 
           <article class="post-card">
-            <a href="sample-post.html" class="post-card__media" aria-label="Read post"></a>
+            <a href="sample-post.html" class="post-card__media" aria-label="Read post"><img src="../assets/img/sound-healing.jpg" alt="" loading="lazy" /></a>
             <div class="post-card__body">
               <p class="post-card__date">Coming soon</p>
               <h3>A Beginner's Guide to Sound Baths</h3>
@@ -76,12 +78,29 @@
         </div>
       </div>
     </section>
+    <!-- ===== Subscribe ===== -->
+    <section class="subscribe section">
+      <div class="container subscribe__inner reveal">
+        <p class="eyebrow">Stay connected</p>
+        <h2>Sign up for news and updates</h2>
+        <p class="lead">Seasonal offerings, trail notes, and the occasional dose of mountain inspiration — straight to your inbox.</p>
+        <!-- Phase 4: connect this form to your newsletter provider (Squarespace / Mailchimp) action URL. -->
+        <form action="#" method="post">
+          <label for="subscribe-email" class="sr-only">Email address</label>
+          <input type="email" id="subscribe-email" name="email" placeholder="Email address" required />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+        <p class="form-note">We respect your inbox. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
+          <img class="footer-logo" src="../assets/img/logo.png" alt="Namaste in Nature" />
           <h4>Namaste in Nature</h4>
           <p>Guided outdoor wellness in the mountains of Asheville, North Carolina — yoga, sound healing, and Micro Retreats&trade;.</p>
           <div class="social">
@@ -111,7 +130,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Namaste in Nature. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Namaste in Nature, LLC. All rights reserved.</p>
         <p>Asheville, North Carolina</p>
       </div>
     </div>

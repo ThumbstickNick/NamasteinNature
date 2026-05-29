@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Micro Retreats&trade; — Namaste in Nature | Asheville, NC</title>
   <meta name="description" content="2–3 hour guided Micro Retreats combining meditation, hiking, forest bathing, and yoga in the Blue Ridge Mountains around Asheville, NC." />
+  <link rel="icon" type="image/png" href="assets/img/logo.png" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="index.html">Namaste <span>in</span> Nature</a>
+      <a class="brand" href="index.html"><img class="brand__logo" src="assets/img/logo.png" alt="" />Namaste <span>in</span> Nature</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -30,7 +31,8 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero page-hero--photo">
+        <div class="page-hero__media" aria-hidden="true"><img src="assets/img/hero-14.jpg" alt="" /></div>
       <div class="container">
         <p class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Micro Retreats</p>
         <p class="eyebrow">Our signature experience</p>
@@ -44,7 +46,7 @@
     <section class="section">
       <div class="container">
         <div class="split reveal">
-          <div class="split__media" data-label="Forest meditation"></div>
+          <div class="split__media"><img src="assets/img/retreat-waterfall.jpg" alt="Forest bathing beside a waterfall" loading="lazy" /></div>
           <div class="split__body">
             <p class="eyebrow">The experience</p>
             <h2>Slow down. Look up. Breathe.</h2>
@@ -92,7 +94,7 @@
     <section class="section">
       <div class="container">
         <div class="split split--reverse reveal">
-          <div class="split__media" data-label="Group celebration"></div>
+          <div class="split__media"><img src="assets/img/retreat-mountain.jpg" alt="Group on a mountain overlook" loading="lazy" /></div>
           <div class="split__body">
             <p class="eyebrow">Perfect for</p>
             <h2>Any occasion worth remembering</h2>
@@ -120,12 +122,29 @@
         <p><a class="btn btn--primary" href="contact.html">Questions? Contact us</a></p>
       </div>
     </section>
+    <!-- ===== Subscribe ===== -->
+    <section class="subscribe section">
+      <div class="container subscribe__inner reveal">
+        <p class="eyebrow">Stay connected</p>
+        <h2>Sign up for news and updates</h2>
+        <p class="lead">Seasonal offerings, trail notes, and the occasional dose of mountain inspiration — straight to your inbox.</p>
+        <!-- Phase 4: connect this form to your newsletter provider (Squarespace / Mailchimp) action URL. -->
+        <form action="#" method="post">
+          <label for="subscribe-email" class="sr-only">Email address</label>
+          <input type="email" id="subscribe-email" name="email" placeholder="Email address" required />
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+        <p class="form-note">We respect your inbox. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
+          <img class="footer-logo" src="assets/img/logo.png" alt="Namaste in Nature" />
           <h4>Namaste in Nature</h4>
           <p>Guided outdoor wellness in the mountains of Asheville, North Carolina — yoga, sound healing, and Micro Retreats&trade;.</p>
           <div class="social">
@@ -155,7 +174,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Namaste in Nature. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Namaste in Nature, LLC. All rights reserved.</p>
         <p>Asheville, North Carolina</p>
       </div>
     </div>

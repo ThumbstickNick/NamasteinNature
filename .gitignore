@@ -1,0 +1,6 @@
+# Local crawl scratch data (source: namasteinnature.com)
+.crawl/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
