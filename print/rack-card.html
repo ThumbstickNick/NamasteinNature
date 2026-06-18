@@ -64,23 +64,20 @@
   img { display: block; }
 
   /* ---------- FRONT ---------- */
-  .front .photo {
+  .front .art {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
-  /* forest gradient: light at top, deep at bottom for text legibility */
-  .front .scrim {
+  /* deep-green fade at the foot so the headline stays legible over the art */
+  .front .fade {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(180deg,
-        rgba(47,74,60,0.28) 0%,
-        rgba(47,74,60,0.10) 32%,
-        rgba(37,48,42,0.55) 66%,
-        rgba(37,48,42,0.92) 100%);
+    background: linear-gradient(180deg,
+      rgba(37,48,42,0) 56%,
+      rgba(37,48,42,0.42) 72%,
+      rgba(37,48,42,0.93) 100%);
   }
   .front .inner {
     position: absolute;
@@ -127,19 +124,8 @@
     max-width: 3.1in;
     color: #eef1ec;
   }
-  .front .cta {
-    margin-top: 0.26in;
-    background: var(--clay);
-    color: var(--white);
-    font-weight: 700;
-    font-size: 11.5pt;
-    letter-spacing: 0.02em;
-    padding: 0.14in 0.42in;
-    border-radius: 999px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.28);
-  }
   .front .url {
-    margin-top: 0.16in;
+    margin-top: 0.22in;
     font-size: 11pt;
     font-weight: 600;
     letter-spacing: 0.04em;
@@ -281,8 +267,136 @@
 
     <!-- ============ FRONT ============ -->
     <section class="card front" aria-label="Rack card front">
-      <img class="photo" src="../assets/img/hero-1.jpg" alt="" />
-      <div class="scrim"></div>
+      <svg class="art" viewBox="0 0 425 925" preserveAspectRatio="xMidYMid slice"
+           xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="Illustration of people hiking, doing yoga, meditating and sound healing in the Blue Ridge Mountains">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#e6ede1"/>
+            <stop offset="0.6" stop-color="#f1ecdd"/>
+            <stop offset="1" stop-color="#f6ead6"/>
+          </linearGradient>
+          <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#f4ddbe"/>
+            <stop offset="0.55" stop-color="#f0d3ab" stop-opacity="0.5"/>
+            <stop offset="1" stop-color="#f0d3ab" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- sky + sun -->
+        <rect x="0" y="0" width="425" height="560" fill="url(#sky)"/>
+        <circle cx="312" cy="150" r="125" fill="url(#sun)"/>
+        <circle cx="312" cy="150" r="38" fill="#f1dab9"/>
+        <!-- birds -->
+        <g fill="none" stroke="#8a9c8b" stroke-width="1.6" stroke-linecap="round">
+          <path d="M150,120 q6,-5 12,0 q6,-5 12,0"/>
+          <path d="M186,138 q4.5,-4 9,0 q4.5,-4 9,0"/>
+          <path d="M120,150 q4.5,-4 9,0 q4.5,-4 9,0"/>
+        </g>
+
+        <!-- back ridge -->
+        <path d="M0,360 C70,322 140,348 210,332 C300,308 360,352 425,336 L425,560 L0,560 Z" fill="#b3c8b3"/>
+        <!-- mist -->
+        <path d="M0,392 C90,378 170,392 250,384 C330,376 380,392 425,388 L425,420 L0,420 Z" fill="#eef1e8" opacity="0.55"/>
+        <!-- mid ridge -->
+        <path d="M0,420 C80,392 150,412 220,398 C310,380 372,408 425,400 L425,640 L0,640 Z" fill="#6f8e72"/>
+        <!-- small pines along mid ridge -->
+        <g fill="#5e7d63">
+          <polygon points="48,402 56,420 40,420"/>
+          <polygon points="78,398 87,418 69,418"/>
+          <polygon points="300,400 308,418 292,418"/>
+          <polygon points="338,404 346,421 330,421"/>
+          <polygon points="366,400 374,418 358,418"/>
+        </g>
+
+        <!-- meadow / clearing -->
+        <path d="M0,470 C90,452 165,470 245,462 C322,454 382,472 425,467 L425,925 L0,925 Z" fill="#cfe0c4"/>
+
+        <!-- winding trail -->
+        <path d="M205,860 C190,782 250,722 232,652 C220,606 270,560 250,500 C245,486 250,478 256,472"
+              fill="none" stroke="#ece4d3" stroke-width="9" stroke-linecap="round"/>
+
+        <!-- flanking pines on the clearing -->
+        <g>
+          <polygon points="30,440 43,476 17,476" fill="#3f5d48"/>
+          <polygon points="30,452 46,484 14,484" fill="#33503f"/>
+          <rect x="28" y="483" width="4" height="8" fill="#5a4636"/>
+        </g>
+        <g>
+          <polygon points="400,444 412,478 388,478" fill="#3f5d48"/>
+          <polygon points="400,456 415,486 385,486" fill="#33503f"/>
+          <rect x="398" y="485" width="4" height="8" fill="#5a4636"/>
+        </g>
+
+        <!-- ===== Figures (lifted into the clearing, above the headline) ===== -->
+        <g transform="translate(0,-86)">
+        <!-- HIKERS (group of two, walking the trail, left) -->
+        <g stroke="#25302a" stroke-width="4" stroke-linecap="round" fill="none">
+          <!-- hiker A -->
+          <rect x="51" y="585" width="10" height="13" rx="3" fill="#25302a" stroke="none"/>
+          <path d="M60,612 L54,598"/>
+          <path d="M60,612 L67,599"/>
+          <path d="M60,599 L63,583"/>
+          <path d="M67,587 L73,615" stroke-width="2.6"/>
+        </g>
+        <circle cx="64" cy="578" r="5" fill="#25302a"/>
+        <g stroke="#25302a" stroke-width="3.4" stroke-linecap="round" fill="none">
+          <!-- hiker B (slightly behind/smaller) -->
+          <rect x="78" y="592" width="8" height="11" rx="2.5" fill="#25302a" stroke="none"/>
+          <path d="M85,612 L80,600"/>
+          <path d="M85,612 L91,601"/>
+          <path d="M85,601 L87,588"/>
+          <path d="M90,591 L95,614" stroke-width="2.2"/>
+        </g>
+        <circle cx="88" cy="584" r="4.2" fill="#25302a"/>
+
+        <!-- YOGA — tree pose (center-left) -->
+        <g stroke="#25302a" stroke-width="5" stroke-linecap="round" fill="none">
+          <path d="M180,612 L180,566"/>          <!-- standing leg -->
+          <path d="M180,566 L180,546"/>          <!-- spine -->
+          <path d="M180,548 L167,523"/>          <!-- raised arm -->
+          <path d="M180,548 L193,523"/>          <!-- raised arm -->
+          <path d="M180,572 L161,584"/>          <!-- bent thigh -->
+          <path d="M161,584 L177,576"/>          <!-- bent shin to inner thigh -->
+        </g>
+        <circle cx="180" cy="537" r="6" fill="#25302a"/>
+
+        <!-- MEDITATION — seated lotus (center-right) -->
+        <path d="M252,612 Q270,576 288,612 Q270,621 252,612 Z" fill="#25302a"/>
+        <path d="M256,604 Q270,596 284,604" stroke="#25302a" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="270" cy="576" r="6.5" fill="#25302a"/>
+
+        <!-- SOUND HEALING — seated with bowls + sound waves (right) -->
+        <g fill="none" stroke="#5e7d63" stroke-width="1.8" stroke-linecap="round">
+          <path d="M331,598 A12,12 0 0 1 357,598"/>
+          <path d="M326,600 A18,18 0 0 1 362,600"/>
+        </g>
+        <path d="M330,612 Q344,582 358,612 Q344,620 330,612 Z" fill="#25302a"/>
+        <circle cx="344" cy="580" r="6" fill="#25302a"/>
+        <ellipse cx="333" cy="616" rx="5" ry="2" fill="#5e7d63"/>
+        <ellipse cx="355" cy="616" rx="5" ry="2" fill="#5e7d63"/>
+
+        <!-- grasses to ground the figures -->
+        <g stroke="#7a9a78" stroke-width="2" stroke-linecap="round" fill="none">
+          <path d="M110,614 q2,-9 5,-12"/><path d="M114,614 q-2,-8 -5,-11"/>
+          <path d="M220,614 q2,-9 5,-12"/><path d="M224,614 q-2,-8 -5,-11"/>
+          <path d="M312,615 q2,-9 5,-12"/><path d="M316,615 q-2,-8 -5,-11"/>
+        </g>
+        </g>
+
+        <!-- foreground deep-forest hill (text sits here) -->
+        <path d="M0,660 C90,636 175,658 255,650 C332,642 386,660 425,655 L425,925 L0,925 Z" fill="#2f4a3c"/>
+        <!-- dark framing pines at the foot -->
+        <g fill="#243a2e">
+          <polygon points="22,628 44,688 0,688"/>
+          <polygon points="22,648 50,704 -6,704"/>
+          <polygon points="404,632 426,690 382,690"/>
+          <polygon points="404,652 432,706 376,706"/>
+        </g>
+      </svg>
+
+      <div class="fade"></div>
+
       <div class="inner">
         <div class="top">
           <img class="logo" src="../assets/img/logo.png" alt="Namaste in Nature logo" />
@@ -292,7 +406,6 @@
         <h1>Reconnect with nature,<br>one breath at a time.</h1>
         <p class="lead">Guided outdoor yoga, sound healing, and Micro Retreats&trade;
           in the Blue Ridge Mountains — small groups, big stillness.</p>
-        <div class="cta">Book Your Escape</div>
         <p class="url">namasteinnature.com</p>
       </div>
     </section>
