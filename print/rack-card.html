@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Namaste in Nature — Rack Card (4&quot; × 9&quot;, print-ready)</title>
+<style>
+  /* =======================================================================
+     Namaste in Nature — Rack Card
+     Trim size : 4" x 9"   |   With 1/8" bleed : 4.25" x 9.25"
+     Two sides : Page 1 = FRONT, Page 2 = BACK
+     To export : Open in Chrome -> Print -> "Save as PDF",
+                 paper size 4.25 x 9.25 in, margins NONE, Background graphics ON.
+     Brand colors pulled from the site's design tokens.
+     ======================================================================= */
+
+  :root {
+    --forest: #2f4a3c;
+    --moss:   #5e7d63;
+    --sage:   #a7bfa9;
+    --sand:   #e9e3d6;
+    --cream:  #f6f3ec;
+    --clay:   #c2784f;
+    --ink:    #25302a;
+    --muted:  #61706a;
+    --white:  #ffffff;
+    --font-head: "Georgia", "Times New Roman", serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    --bleed: 0.125in;          /* 1/8" bleed */
+    --safe: 0.3in;             /* keep text inside this from each edge */
+    --card-w: 4.25in;          /* trim 4" + bleed both sides */
+    --card-h: 9.25in;          /* trim 9" + bleed both sides */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #525659;       /* neutral backdrop for on-screen preview only */
+    font-family: var(--font-body);
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Screen preview: show the two cards side by side with a little breathing room */
+  .sheet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4in;
+    justify-content: center;
+    padding: 0.5in;
+  }
+
+  .card {
+    position: relative;
+    width: var(--card-w);
+    height: var(--card-h);
+    overflow: hidden;
+    background: var(--cream);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  }
+
+  img { display: block; }
+
+  /* ---------- FRONT ---------- */
+  .front .photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* forest gradient: light at top, deep at bottom for text legibility */
+  .front .scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(47,74,60,0.28) 0%,
+        rgba(47,74,60,0.10) 32%,
+        rgba(37,48,42,0.55) 66%,
+        rgba(37,48,42,0.92) 100%);
+  }
+  .front .inner {
+    position: absolute;
+    inset: 0;
+    padding: calc(var(--bleed) + var(--safe));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+  }
+  .front .logo {
+    width: 1.35in;
+    height: 1.35in;
+    border-radius: 50%;
+    background: var(--white);
+    padding: 0.08in;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    object-fit: contain;
+  }
+  .front .top { margin-top: 0.1in; }
+  .front .spacer { flex: 1; }
+
+  .eyebrow {
+    font-size: 9.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--sage);
+    margin-bottom: 0.12in;
+  }
+  .front h1 {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 27pt;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  }
+  .front .lead {
+    font-size: 11pt;
+    line-height: 1.5;
+    margin-top: 0.16in;
+    max-width: 3.1in;
+    color: #eef1ec;
+  }
+  .front .cta {
+    margin-top: 0.26in;
+    background: var(--clay);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 11.5pt;
+    letter-spacing: 0.02em;
+    padding: 0.14in 0.42in;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.28);
+  }
+  .front .url {
+    margin-top: 0.16in;
+    font-size: 11pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--white);
+  }
+
+  /* ---------- BACK ---------- */
+  .back .inner {
+    position: absolute;
+    inset: 0;
+    padding: calc(var(--bleed) + var(--safe));
+    display: flex;
+    flex-direction: column;
+  }
+  .back .head { text-align: center; }
+  .back .head img {
+    width: 0.95in; height: 0.95in;
+    margin: 0 auto 0.08in;
+    object-fit: contain;
+  }
+  .back .head .kicker {
+    font-size: 8.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    font-weight: 700;
+  }
+  .back .head h2 {
+    font-family: var(--font-head);
+    color: var(--forest);
+    font-size: 20pt;
+    line-height: 1.1;
+    margin-top: 0.04in;
+  }
+
+  .offer-list {
+    margin-top: 0.22in;
+    display: flex;
+    flex-direction: column;
+    gap: 0.14in;
+  }
+  .offer {
+    display: flex;
+    align-items: center;
+    gap: 0.16in;
+  }
+  .offer .thumb {
+    width: 0.92in;
+    height: 0.72in;
+    border-radius: 10px;
+    object-fit: cover;
+    flex: none;
+    box-shadow: 0 3px 8px rgba(37,48,42,0.18);
+  }
+  .offer h3 {
+    font-family: var(--font-head);
+    color: var(--forest);
+    font-size: 12.5pt;
+    line-height: 1.1;
+    margin-bottom: 0.03in;
+  }
+  .offer p {
+    font-size: 8.8pt;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+
+  .back .spacer { flex: 1; min-height: 0.12in; }
+
+  .contact {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 14px;
+    margin: 0 calc(-1 * var(--safe) / 3);
+    padding: 0.22in 0.26in;
+    text-align: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .contact .ready {
+    font-family: var(--font-head);
+    font-size: 13pt;
+    margin-bottom: 0.1in;
+    color: var(--white);
+  }
+  .contact .rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.045in;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .contact .rows .big {
+    font-size: 12.5pt;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .contact .url {
+    margin-top: 0.1in;
+    color: var(--sage);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-size: 10.5pt;
+  }
+  .contact .social {
+    margin-top: 0.08in;
+    font-size: 8.5pt;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+  }
+
+  .legal {
+    text-align: center;
+    font-size: 6.5pt;
+    color: var(--muted);
+    margin-top: 0.12in;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- PRINT ---------- */
+  @page {
+    size: 4.25in 9.25in;   /* trim + bleed */
+    margin: 0;
+  }
+  @media print {
+    html, body { background: var(--white); }
+    .sheet { display: block; padding: 0; gap: 0; }
+    .card {
+      box-shadow: none;
+      page-break-after: always;
+      break-after: page;
+    }
+    .card:last-child { page-break-after: auto; break-after: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <!-- ============ FRONT ============ -->
+    <section class="card front" aria-label="Rack card front">
+      <img class="photo" src="../assets/img/hero-1.jpg" alt="" />
+      <div class="scrim"></div>
+      <div class="inner">
+        <div class="top">
+          <img class="logo" src="../assets/img/logo.png" alt="Namaste in Nature logo" />
+        </div>
+        <div class="spacer"></div>
+        <p class="eyebrow">Asheville &middot; North Carolina</p>
+        <h1>Reconnect with nature,<br>one breath at a time.</h1>
+        <p class="lead">Guided outdoor yoga, sound healing, and Micro Retreats&trade;
+          in the Blue Ridge Mountains — small groups, big stillness.</p>
+        <div class="cta">Book Your Escape</div>
+        <p class="url">namasteinnature.com</p>
+      </div>
+    </section>
+
+    <!-- ============ BACK ============ -->
+    <section class="card back" aria-label="Rack card back">
+      <div class="inner">
+        <div class="head">
+          <img src="../assets/img/logo.png" alt="Namaste in Nature logo" />
+          <p class="kicker">What we offer</p>
+          <h2>Find your experience</h2>
+        </div>
+
+        <div class="offer-list">
+          <div class="offer">
+            <img class="thumb" src="../assets/img/retreat-waterfall.jpg" alt="" />
+            <div>
+              <h3>Micro Retreats&trade;</h3>
+              <p>2&ndash;3 hour guided journeys — meditation, a gentle hike, forest bathing &amp; yoga.</p>
+            </div>
+          </div>
+          <div class="offer">
+            <img class="thumb" src="../assets/img/yoga-1.jpg" alt="" />
+            <div>
+              <h3>Yoga Classes</h3>
+              <p>Private &amp; public sessions, plus yoga in the park — flow surrounded by forest.</p>
+            </div>
+          </div>
+          <div class="offer">
+            <img class="thumb" src="../assets/img/sound-healing.jpg" alt="" />
+            <div>
+              <h3>Sound Healing</h3>
+              <p>Immersive sound baths to quiet the mind and reset the nervous system.</p>
+            </div>
+          </div>
+          <div class="offer">
+            <img class="thumb" src="../assets/img/massage-1.jpg" alt="" />
+            <div>
+              <h3>Mobile Massage</h3>
+              <p>Restorative bodywork brought to you — home, rental, or trailside.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="contact">
+          <p class="ready">Ready to step outside?</p>
+          <div class="rows">
+            <span class="big">(828) 276-3536</span>
+            <span>booking@namasteinnature.com</span>
+          </div>
+          <p class="url">namasteinnature.com</p>
+          <p class="social">Facebook &middot; Instagram &middot; YouTube&nbsp; @namasteinnature</p>
+        </div>
+
+        <p class="legal">&copy; Namaste in Nature, LLC &middot; Asheville, North Carolina</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

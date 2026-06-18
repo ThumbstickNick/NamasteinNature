@@ -1,6 +1,9 @@
 # Local crawl scratch data (source: namasteinnature.com)
 .crawl/
 
+# Generated print exports (regenerate from print/*.html; too large for git)
+print/*.pdf
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
